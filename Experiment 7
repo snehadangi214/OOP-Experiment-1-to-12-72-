@@ -1,0 +1,116 @@
+#include <iostream>
+using namespace std;
+
+class Area {
+public:
+    void calculate(int side) {
+        cout << "Area of Classroom (Square): " << side * side << endl;
+    }
+    void calculate(int length, int breadth) {
+        cout << "Area of Laboratory (Rectangle): " << length * breadth << endl;
+    }
+};
+
+int main() {
+    Area a;
+    int side, length, breadth;
+    cout << "Enter side of Classroom: ";
+    cin >> side;
+    cout << "Enter length and breadth of Laboratory: ";
+    cin >> length >> breadth;
+    a.calculate(side);
+    a.calculate(length, breadth);
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class Sum {
+public:
+    void add(float a, float b, float c, float d, float e) {
+        cout << "Sum of 5 float values: " << a + b + c + d + e << endl;
+    }
+    void add(int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10) {
+        cout << "Sum of 10 integer values: " << a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 << endl;
+    }
+};
+
+int main() {
+    Sum s;
+    s.add(1.1, 2.2, 3.3, 4.4, 5.5);
+    s.add(1,2,3,4,5,6,7,8,9,10);
+    return 0;
+}
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class Number {
+    int x;
+public:
+    void getData() {
+        cout << "Enter a number: ";
+        cin >> x;
+    }
+    void display() {
+        cout << "Value: " << x << endl;
+    }
+    void operator-() {
+        x = -x;
+    }
+};
+
+int main() {
+    Number n;
+    n.getData();
+    -n;
+    n.display();
+    return 0;
+}
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class Number {
+    int x;
+public:
+    void getData() {
+        cout << "Enter a number: ";
+        cin >> x;
+    }
+    void display() {
+        cout << "Value: " << x << endl;
+    }
+    void operator++() {
+        ++x;
+    }
+    void operator++(int) {
+        x++;
+    }
+};
+
+int main() {
+    Number n;
+    n.getData();
+    ++n;
+    cout << "After Pre-increment: ";
+    n.display();
+    n++;
+    cout << "After Post-increment: ";
+    n.display();
+    return 0;
+}

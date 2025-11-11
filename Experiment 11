@@ -1,0 +1,68 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {10, 20, 30, 40, 50};
+
+    // Modify a specific element
+    int pos, newVal;
+    cout << "Enter position to modify (0-4): ";
+    cin >> pos;
+    cout << "Enter new value: ";
+    cin >> newVal;
+
+    auto it = v.begin();
+    *(it + pos) = newVal;
+
+    int scalar;
+    cout << "Enter scalar to multiply: ";
+    cin >> scalar;
+
+    for (auto itr = v.begin(); itr != v.end(); ++itr)
+        *itr *= scalar;
+
+    cout << "Vector: (";
+    for (auto itr = v.begin(); itr != v.end(); ++itr) {
+        cout << *itr;
+        if (itr != v.end() - 1)
+            cout << ",";
+    }
+    cout << ")" << endl;
+
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {10, 20, 30, 40, 50};
+    int pos, newVal;
+    cout << "Enter position to modify (0-4): ";
+    cin >> pos;
+    cout << "Enter new value: ";
+    cin >> newVal;
+    v[pos] = newVal;
+    int scalar;
+    cout << "Enter scalar to multiply: ";
+    cin >> scalar;
+
+    for (size_t i = 0; i < v.size(); i++)
+        v[i] *= scalar;
+    cout << "Vector: (";
+    for (size_t i = 0; i < v.size(); i++) {
+        cout << v[i];
+        if (i != v.size() - 1)
+            cout << ",";
+    }
+    cout << ")" << endl;
+
+    return 0;
+}

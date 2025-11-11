@@ -1,0 +1,101 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+    int roll_no;
+    string name;
+    string class_name;
+public:
+    void getData() {
+        cout << "Enter Roll Number: ";
+        cin >> roll_no;
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Class: ";
+        cin >> class_name;
+    }
+    void displayData() {
+        cout << "\nRoll Number: " << roll_no << endl;
+        cout << "Name: " << name << endl;
+        cout << "Class: " << class_name << endl;
+    }
+};
+
+int main() {
+    Student s;
+    s.getData();
+    s.displayData();
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class Book {
+    string book_name;
+    float price;
+    int pages;
+public:
+    void getData() {
+        cout << "Enter Book Name: ";
+        cin >> book_name;
+        cout << "Enter Price: ";
+        cin >> price;
+        cout << "Enter Number of Pages: ";
+        cin >> pages;
+    }
+    float getPrice() { return price; }
+    string getName() { return book_name; }
+};
+
+int main() {
+    Book b1, b2;
+    cout << "Enter details of Book 1:\n";
+    b1.getData();
+    cout << "\nEnter details of Book 2:\n";
+    b2.getData();
+    cout << "\nBook with Greater Price: ";
+    if (b1.getPrice() > b2.getPrice())
+        cout << b1.getName();
+    else if (b2.getPrice() > b1.getPrice())
+        cout << b2.getName();
+    else
+        cout << "Both have same price.";
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class Time {
+    int hours, minutes, seconds;
+public:
+    void getTime() {
+        cout << "Enter Time (HH MM SS): ";
+        cin >> hours >> minutes >> seconds;
+    }
+    int convertToSeconds() {
+        return (hours * 3600) + (minutes * 60) + seconds;
+    }
+    void displaySeconds() {
+        cout << "Total Seconds = " << convertToSeconds() << endl;
+    }
+};
+
+int main() {
+    Time t;
+    t.getTime();
+    t.displaySeconds();
+    return 0;
+}
+

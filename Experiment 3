@@ -1,0 +1,106 @@
+#include <iostream>
+using namespace std;
+
+class Book {
+    string book_title;
+    string author_name;
+    float price;
+public:
+    void getData() {
+        cout << "Enter Book Title: ";
+        cin >> book_title;
+        cout << "Enter Author Name: ";
+        cin >> author_name;
+        cout << "Enter Price: ";
+        cin >> price;
+    }
+    void displayData() {
+        cout << "\nBook Title: " << book_title;
+        cout << "\nAuthor Name: " << author_name;
+        cout << "\nPrice: " << price << endl;
+    }
+};
+
+int main() {
+    Book b, *ptr;
+    ptr = &b;
+    ptr->getData();
+    ptr->displayData();
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class Student {
+    int roll_no;
+    float percentage;
+public:
+    void getData() {
+        cout << "Enter Roll No: ";
+        cin >> this->roll_no;
+        cout << "Enter Percentage: ";
+        cin >> this->percentage;
+    }
+    void displayData() {
+        cout << "\nRoll No: " << this->roll_no;
+        cout << "\nPercentage: " << this->percentage << endl;
+    }
+};
+
+int main() {
+    Student s;
+    s.getData();
+    s.displayData();
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class Outer {
+    int x;
+public:
+    void getX() {
+        cout << "Enter value of x: ";
+        cin >> x;
+    }
+    void displayX() {
+        cout << "x = " << x << endl;
+    }
+
+    class Inner {
+        int y;
+    public:
+        void getY() {
+            cout << "Enter value of y: ";
+            cin >> y;
+        }
+        void displayY() {
+            cout << "y = " << y << endl;
+        }
+    };
+};
+
+int main() {
+    Outer o;
+    o.getX();
+    o.displayX();
+
+    Outer::Inner i;
+    i.getY();
+    i.displayY();
+
+    return 0;
+}
+

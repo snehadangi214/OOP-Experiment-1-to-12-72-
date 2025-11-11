@@ -1,0 +1,100 @@
+#include <iostream>
+using namespace std;
+
+class Stack {
+    int s[10], top;
+public:
+    Stack() { top = -1; }
+
+    void push(int x) {
+        if (top == 9)
+            cout << "Stack Overflow\n";
+        else
+            s[++top] = x;
+    }
+
+    void pop() {
+        if (top == -1)
+            cout << "Stack Underflow\n";
+        else
+            cout << "Popped: " << s[top--] << endl;
+    }
+
+    void display() {
+        if (top == -1)
+            cout << "Stack is Empty\n";
+        else {
+            cout << "Stack Elements: ";
+            for (int i = top; i >= 0; i--)
+                cout << s[i] << " ";
+            cout << endl;
+        }
+    }
+};
+
+int main() {
+    Stack st;
+    st.push(10);
+    st.push(20);
+    st.push(30);
+    st.display();
+    st.pop();
+    st.display();
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class Queue {
+    int q[10], front, rear;
+public:
+    Queue() {
+        front = -1;
+        rear = -1;
+    }
+
+    void enqueue(int x) {
+        if (rear == 9)
+            cout << "Queue Overflow\n";
+        else {
+            if (front == -1)
+                front = 0;
+            q[++rear] = x;
+        }
+    }
+
+    void dequeue() {
+        if (front == -1 || front > rear)
+            cout << "Queue Underflow\n";
+        else
+            cout << "Dequeued: " << q[front++] << endl;
+    }
+
+    void display() {
+        if (front == -1 || front > rear)
+            cout << "Queue is Empty\n";
+        else {
+            cout << "Queue Elements: ";
+            for (int i = front; i <= rear; i++)
+                cout << q[i] << " ";
+            cout << endl;
+        }
+    }
+};
+
+int main() {
+    Queue qu;
+    qu.enqueue(10);
+    qu.enqueue(20);
+    qu.enqueue(30);
+    qu.display();
+    qu.dequeue();
+    qu.display();
+    return 0;
+}

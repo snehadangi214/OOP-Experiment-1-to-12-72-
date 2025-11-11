@@ -1,0 +1,132 @@
+#include <iostream>
+using namespace std;
+
+class Sum {
+    int n, total;
+public:
+    Sum() {
+        n = 0;
+        total = 0;
+    }
+    Sum(int num) {
+        n = num;
+        total = 0;
+        for(int i=1;i<=n;i++)
+            total += i;
+    }
+    Sum(Sum &s) {
+        n = s.n;
+        total = s.total;
+    }
+    void display() {
+        cout << "Sum of numbers from 1 to " << n << " = " << total << endl;
+    }
+};
+
+int main() {
+    int num;
+    cout << "Enter n: ";
+    cin >> num;
+    Sum s1(num);
+    Sum s2(s1);
+    Sum s3;
+    s1.display();
+    s2.display();
+    s3.display();
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class Student {
+    string name;
+    float percentage;
+public:
+    Student(string n, float p) {
+        name = n;
+        percentage = p;
+    }
+    void display() {
+        cout << "Name: " << name << "\nPercentage: " << percentage << endl;
+    }
+};
+
+int main() {
+    string n;
+    float p;
+    cout << "Enter Name: ";
+    cin >> n;
+    cout << "Enter Percentage: ";
+    cin >> p;
+    Student s(n, p);
+    s.display();
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class College {
+    int roll_no;
+    string name;
+    string course;
+public:
+    College(int r, string n, string c="Computer Engineering") {
+        roll_no = r;
+        name = n;
+        course = c;
+    }
+    void display() {
+        cout << "Roll No: " << roll_no << "\nName: " << name << "\nCourse: " << course << endl;
+    }
+};
+
+int main() {
+    College c1(1, "Sneha");
+    College c2(2, "Riya", "Information Technology");
+    c1.display();
+    c2.display();
+    return 0;
+}
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class Add {
+    int a, b;
+public:
+    Add() {
+        a = 0; b = 0;
+    }
+    Add(int x) {
+        a = x; b = 0;
+    }
+    Add(int x, int y) {
+        a = x; b = y;
+    }
+    void display() {
+        cout << "Sum = " << a + b << endl;
+    }
+};
+
+int main() {
+    Add obj1;
+    Add obj2(5);
+    Add obj3(4, 6);
+    obj1.display();
+    ob

@@ -1,0 +1,116 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream fin("First.txt", ios::in);
+    ofstream fout("Second.txt", ios::out);
+
+    if (!fin) {
+        cout << "Error opening First.txt";
+        return 0;
+    }
+
+    char ch;
+    while (fin.get(ch)) {
+        fout.put(ch);
+    }
+
+    fin.close();
+    fout.close();
+    cout << "File copied successfully.\n";
+    return 0;
+}
+
+
+
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream fin("First.txt");
+    if (!fin) {
+        cout << "Error opening file.";
+        return 0;
+    }
+
+    char ch;
+    int digits = 0, spaces = 0;
+
+    while (fin.get(ch)) {
+        if (isdigit(ch))
+            digits++;
+        if (isspace(ch))
+            spaces++;
+    }
+
+    cout << "Digits: " << digits << endl;
+    cout << "Spaces: " << spaces << endl;
+
+    fin.close();
+    return 0;
+}
+
+
+
+
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream fin("First.txt");
+    if (!fin) {
+        cout << "Error opening file.";
+        return 0;
+    }
+
+    string word;
+    int count = 0;
+
+    while (fin >> word)
+        count++;
+
+    cout << "Total Words: " << count << endl;
+
+    fin.close();
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream fin("First.txt");
+    if (!fin) {
+        cout << "Error opening file.";
+        return 0;
+    }
+
+    string word, search;
+    int count = 0;
+
+    cout << "Enter word to search: ";
+    cin >> search;
+
+    while (fin >> word) {
+        if (word == search)
+            count++;
+    }
+
+    cout << "Occurrences of \"" << search << "\": " << count << endl;
+
+    fin.close();
+    return 0;
+}

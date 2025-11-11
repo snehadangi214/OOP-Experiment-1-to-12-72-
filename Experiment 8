@@ -1,0 +1,81 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class AddString {
+    string str;
+public:
+    AddString(string s = "") {
+        str = s;
+    }
+    AddString operator+(AddString &s) {
+        return AddString(str + s.str);
+    }
+    void display() {
+        cout << "Concatenated String: " << str << endl;
+    }
+};
+
+int main() {
+    AddString s1("xyz"), s2("pqr"), s3;
+    s3 = s1 + s2;
+    s3.display();
+    return 0;
+}
+
+
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class ILogin {
+protected:
+    string name, password;
+public:
+    virtual void accept() {
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Password: ";
+        cin >> password;
+    }
+    virtual void display() {
+        cout << "Name: " << name << "\nPassword: " << password << endl;
+    }
+};
+
+class EmailLogin : public ILogin {
+    string email;
+public:
+    void accept() override {
+        cout << "Enter Email: ";
+        cin >> email;
+        ILogin::accept();
+    }
+    void display() override {
+        cout << "\n--- Email Login Details ---\n";
+        cout << "Email: " << email << endl;
+        ILogin::display();
+    }
+};
+
+class MembershipLogin : public ILogin {
+    int memberID;
+public:
+    void accept() override {
+        cout << "Enter Member ID: ";
+        cin >> memberID;
+        ILogin::accept();
+    }
+    void display() override {
+        cout << "\n--- Membership Login Details ---\n";
+        cout << "Member ID: " << memberID << endl;
+        ILogin::display();
+    }
+};
+
+int main() {
+    EmailLogin e;
+    MembershipL

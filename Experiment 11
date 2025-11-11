@@ -1,0 +1,140 @@
+#include <iostream>
+using namespace std;
+
+template <class T>
+T sumArray(T arr[], int n) {
+    T sum = 0;
+    for (int i = 0; i < n; i++)
+        sum += arr[i];
+    return sum;
+}
+
+int main() {
+    int iArr[5] = {1, 2, 3, 4, 5};
+    float fArr[5] = {1.1, 2.2, 3.3, 4.4, 5.5};
+    double dArr[5] = {1.11, 2.22, 3.33, 4.44, 5.55};
+
+    cout << "Sum of int array: " << sumArray(iArr, 5) << endl;
+    cout << "Sum of float array: " << sumArray(fArr, 5) << endl;
+    cout << "Sum of double array: " << sumArray(dArr, 5) << endl;
+
+    return 0;
+}
+
+
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+template <class T>
+T square(T x) {
+    return x * x;
+}
+
+template <>
+string square<string>(string s) {
+    return s + s;
+}
+
+int main() {
+    int i = 5;
+    string str = "Hello";
+
+    cout << "Square of integer: " << square(i) << endl;
+    cout << "Square of string: " << square(str) << endl;
+
+    return 0;
+}
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+template <class T>
+class Calculator {
+    T a, b;
+public:
+    Calculator(T x, T y) {
+        a = x;
+        b = y;
+    }
+    void display() {
+        cout << "Addition: " << a + b << endl;
+        cout << "Subtraction: " << a - b << endl;
+        cout << "Multiplication: " << a * b << endl;
+        cout << "Division: " << a / b << endl;
+    }
+};
+
+int main() {
+    Calculator<int> c1(10, 5);
+    Calculator<float> c2(10.5, 2.5);
+    c1.display();
+    c2.display();
+    return 0;
+}
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+template <class T>
+class Stack {
+    T s[10];
+    int top;
+public:
+    Stack() { top = -1; }
+
+    void push(T item) {
+        if (top == 9)
+            cout << "Stack Overflow\n";
+        else
+            s[++top] = item;
+    }
+
+    void pop() {
+        if (top == -1)
+            cout << "Stack Underflow\n";
+        else
+            cout << "Popped: " << s[top--] << endl;
+    }
+
+    void display() {
+        if (top == -1)
+            cout << "Stack is Empty\n";
+        else {
+            cout << "Stack elements: ";
+            for (int i = 0; i <= top; i++)
+                cout << s[i] << " ";
+            cout << endl;
+        }
+    }
+};
+
+int main() {
+    Stack<int> s1;
+    s1.push(10);
+    s1.push(20);
+    s1.push(30);
+    s1.display();
+    s1.pop();
+    s1.display();
+
+    Stack<string> s2;
+    s2.push("Hello");
+    s2.push("World");
+    s2.display();
+    s2.pop();
+    s2.display();
+
+    return 0;
+}
